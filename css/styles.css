@@ -1,0 +1,54 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.textareas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.textarea {
+  border-radius: 5px;
+  font-family: inherit;
+  height: 400px;
+  resize: none;
+  width: 30%;
+}
+
+.coincidences {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 400px;
+  overflow-y: auto;
+  width: 30%;
+}
+
+.order {
+  border-radius: 5px;
+  color: #fcfafa;
+  display: inline-block;
+  margin-left: 15px;
+  padding: 5px 10px;
+}
+
+.order--state-exists {
+  background-color: #68c968;
+  -webkit-box-shadow: 1px 1px 5px #076907;
+          box-shadow: 1px 1px 5px #076907;
+}
+
+.button {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
