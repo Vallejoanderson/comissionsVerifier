@@ -46,9 +46,30 @@ body {
           box-shadow: 1px 1px 5px #076907;
 }
 
+.order--state-notexists {
+  background-color: red;
+}
+
 .button {
   display: block;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.notcoincidences {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 20px;
+}
+
+.notrecognised, .notmade {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 100px;
+  overflow-y: auto;
+  width: 30%;
 }

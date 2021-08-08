@@ -1,5 +1,7 @@
 const btn = document.getElementById('button');
 const coincidencesbox = document.querySelector('.coincidences');
+const notrecognised = document.querySelector('.notrecognised');
+const notmade = document.querySelector('.notmade');
 
 btn.addEventListener('click', function(){
 	generateOrdersarray();
@@ -32,6 +34,8 @@ function generateOrdersarray(){ // Use two arrays and find coincidences between 
 	console.log(notfoundinSystem);		
 	console.log(notfoundinOrders);			// [Third array] which contains coincidences between first array and second array
 	showCoincidences(coincidences);
+	shownotrecognised(notfoundinSystem);
+	shownotmade(notfoundinOrders);
 }
 
 function showCoincidences(coincidences){
@@ -44,5 +48,22 @@ function showCoincidences(coincidences){
 	}
 }
 
+function shownotrecognised(coincidences){
+	for(let i = 0; i < coincidences.length; i++){
+		const item = document.createElement('p');
+		item.textContent = coincidences[i];
+		item.classList.add("order");
+		item.classList.add("order--state-notexists");
+	  notrecognised.appendChild(item);
+	}
+}
 
-
+function shownotmade(coincidences){
+	for(let i = 0; i < coincidences.length; i++){
+		const item = document.createElement('p');
+		item.textContent = coincidences[i];
+		item.classList.add("order");
+		item.classList.add("order--state-notexists");
+	  notmade.appendChild(item);
+	}
+}
