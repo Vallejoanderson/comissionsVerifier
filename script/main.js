@@ -4,25 +4,36 @@ const notrecognised = document.querySelector('.notrecognised');
 const notmade = document.querySelector('.notmade');
 
 btn.addEventListener('click', function(){
-	generateOrdersarray();
+	removeChildren();
+	generateOrdersarray(coincidencesbox);
 });
 
+function removeChildren(){ /* Remove children to prevent repetion in the boxes when the user click twice on the button */
+	while(coincidencesbox.firstChild){ 
+		coincidencesbox.removeChild(coincidencesbox.lastChild);
+	}
+	while(notrecognised.firstChild){
+		notrecognised.removeChild(notrecognised.firstChild);
+	}
+	while(notmade.firstChild){
+		notmade.removeChild(notmade.firstChild);
+	}
+}
+
 function generateOrdersarray(){ // Use two arrays and find coincidences between them
+	const regex = /\b\d{6}\b/g;
 	let notes = document.getElementById('notes').value; 	//  First textrarea
 	let report = document.getElementById('report').value; // 	Second textarea
-	const regex = /\b\d{5}\b/g;
-	let myOrders = [];										// Regular expression to extract values from Second Array
-	myOrders = notes.match(regex);										// [First array] from matches in the first textarea
 	let systemOrders = report.match(regex);								// [Second array] from matches in the first textarea
-	console.log(myOrders);		
-	console.log(systemOrders);
-	let coincidences = [];	
 	let notfoundinSystem = [];
 	let notfoundinOrders = [];															// Array from items existing in First and Second Array
+	let coincidences = [];	
+	let myOrders = [];										// Regular expression to extract values from Second Array
+	myOrders = notes.match(regex);									// [First array] from matches in the first textarea
 	notfoundinSystem = myOrders.filter( function( el ) { // Array from items existing in First Array but not in Second Array
   	return systemOrders.indexOf( el ) < 0;
 } );
-  notfoundinOrders = systemOrders.filter( function( el ) { // Array from items existing in Second Array but not in First Array
+  	notfoundinOrders = systemOrders.filter( function( el ) { // Array from items existing in Second Array but not in First Array
   	return myOrders.indexOf( el ) < 0;
 	} );
 	for( let i = 0; i < myOrders.length; i++){								
@@ -30,9 +41,6 @@ function generateOrdersarray(){ // Use two arrays and find coincidences between 
 			coincidences.push(myOrders[i]);
 		}
 	}
-	console.log(coincidences);
-	console.log(notfoundinSystem);		
-	console.log(notfoundinOrders);			// [Third array] which contains coincidences between first array and second array
 	showCoincidences(coincidences);
 	shownotrecognised(notfoundinSystem);
 	shownotmade(notfoundinOrders);
