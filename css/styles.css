@@ -1,10 +1,27 @@
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
 }
 
 body {
+  background: -webkit-gradient(linear, left top, right top, from(#141e30), to(#243b55));
+  background: linear-gradient(to right, #141e30, #243b55);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: "Noto Sans KR", sans-serif;
+}
+
+.header {
+  background-color: #24527c;
+  -webkit-box-shadow: 1p 5px 5px #3c6e9c;
+          box-shadow: 1p 5px 5px #3c6e9c;
+  height: 65px;
+  margin-bottom: 15px;
+  padding: 5px;
+  width: 100%;
+}
+.header .header__image {
+  height: 95%;
 }
 
 .textareas {
@@ -17,17 +34,24 @@ body {
 }
 
 .textarea {
+  background-color: #13385a;
   border-radius: 5px;
+  border-color: #13385a;
+  -webkit-box-shadow: 1px 1px 1px #153858;
+          box-shadow: 1px 1px 1px #153858;
+  color: white;
   font-family: inherit;
-  height: 400px;
+  height: 300px;
   resize: none;
+  padding: 10px;
   width: 30%;
 }
 
 .coincidences {
+  background-color: #13385a;
   border: 1px solid black;
   border-radius: 5px;
-  height: 400px;
+  height: 300px;
   overflow-y: auto;
   width: 30%;
 }
@@ -51,10 +75,16 @@ body {
 }
 
 .button {
+  background-color: rgba(62, 143, 197, 0.849);
+  border-color: rgba(118, 168, 201, 0.849);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
   display: block;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 75px;
+  margin-top: 10px;
+  width: 150px;
 }
 
 .notcoincidences {
@@ -67,7 +97,10 @@ body {
 }
 
 .notrecognised, .notmade {
-  border: 1px solid black;
+  background-color: #13385a;
+  border: 1px solid #24527c;
+  -webkit-box-shadow: 1px 1px 1px #153858;
+          box-shadow: 1px 1px 1px #153858;
   border-radius: 5px;
   height: 100px;
   overflow-y: auto;
